@@ -1,9 +1,9 @@
-import { FileSystem } from './fs/fileSystem';
+import { FileSystem } from './fs/interfaces';
 
 interface KernelConfig {
   fileSystem: FileSystem;
 }
 
 export class Kernel {
-  constructor(config: KernelConfig) {}
+  constructor(private config: KernelConfig) {}
 }
