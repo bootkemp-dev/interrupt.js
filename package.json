@@ -1,0 +1,8 @@
+{
+  "name": "interrupt.js",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bootkemp-dev/interrupt.js.git",
+  "author": "Bartosz Gleń",
+  "license": "MIT"
+}
