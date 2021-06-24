@@ -1,7 +1,7 @@
 {
   "name": "interrupt.js",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "dist/interrupt.js",
   "repository": "https://github.com/bootkemp-dev/interrupt.js.git",
   "author": "Bartosz Gleń",
   "license": "MIT",
@@ -14,6 +14,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
-    "dev": "webpack-dev-server"
+    "compile:dev": "webpack --mode development",
+    "compile:prod": "webpack --mode production"
   }
 }
