@@ -1,10 +1,10 @@
 import { FileContent, FsDirectory, Path } from './interfaces';
 
 export abstract class FileSystem {
-  protected fs: FsDirectory;
+  protected dirTree: FsDirectory;
 
   constructor() {
-    this.fs = {
+    this.dirTree = {
       name: '/',
       children: []
     };
