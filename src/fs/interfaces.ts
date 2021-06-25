@@ -1,4 +1,5 @@
 export type FileContent = string | null;
+export type Path = { absolute: boolean; path: string[] };
 
 export abstract class FileSystem {
   abstract read(path: string): FileContent;
@@ -10,19 +11,22 @@ export abstract class FileSystem {
   protected parsePath(
     path: string,
     validPathRegex: RegExp = /^(\/)?([^\/\0]+(\/)?)+$/
-  ): string[] {
+  ): Path {
     if (!validPathRegex.test(path)) {
       throw new Error(`Invalid path: ${path}`);
     }
 
-    const isAbsolute = path.startsWith('/');
+    const absolute = path.startsWith('/');
 
     const splitPath = path.split('/');
-    if (isAbsolute) {
+    if (absolute) {
       splitPath.unshift('/');
     }
 
-    return splitPath.filter(val => val !== '');
+    return {
+      absolute,
+      path: splitPath.filter(val => val !== '')
+    };
   }
 }
 
