@@ -1,4 +1,4 @@
-import { FileSystem } from './fs/interfaces';
+import { FileSystem } from './fs/abstractFileSystem';
 
 interface KernelConfig {
   fileSystem: FileSystem;

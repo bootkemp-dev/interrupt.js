@@ -1,4 +1,5 @@
-import { FsDirectory, FileContent, FileSystem } from './interfaces';
+import { FileContent } from './interfaces';
+import { FileSystem } from './abstractFileSystem';
 
 export class LocalStorageFileSystem extends FileSystem {
   read(path: string): FileContent {
