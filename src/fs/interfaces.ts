@@ -32,6 +32,14 @@ export abstract class FileSystem {
       dirs: path.split('/').filter(val => val !== '')
     };
   }
+
+  protected unparsePath(path: Path) {
+    if (path.absolute) {
+      path.dirs.unshift('/');
+    }
+
+    return path.dirs.join('/');
+  }
 }
 
 export interface FsObject {
