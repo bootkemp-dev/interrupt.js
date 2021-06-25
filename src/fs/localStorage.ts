@@ -1,9 +1,10 @@
 import { FsDirectory, FileContent, FileSystem } from './interfaces';
 
-export class LocalStorageFileSystem implements FileSystem {
+export class LocalStorageFileSystem extends FileSystem {
   private fs: FsDirectory;
 
   constructor() {
+    super();
     this.fs = {
       name: '/',
       children: []

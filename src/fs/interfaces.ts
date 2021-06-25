@@ -1,11 +1,29 @@
 export type FileContent = string | null;
 
-export interface FileSystem {
-  read(path: string): FileContent;
+export abstract class FileSystem {
+  abstract read(path: string): FileContent;
 
-  save(path: string, content: FileContent): void;
+  abstract save(path: string, content: FileContent): void;
 
-  delete(path: string): void;
+  abstract delete(path: string): void;
+
+  protected parsePath(
+    path: string,
+    validPathRegex: RegExp = /^(\/)?([^\/\0]+(\/)?)+$/
+  ): string[] {
+    if (!validPathRegex.test(path)) {
+      throw new Error(`Invalid path: ${path}`);
+    }
+
+    const isAbsolute = path.startsWith('/');
+
+    const splitPath = path.split('/');
+    if (isAbsolute) {
+      splitPath.unshift('/');
+    }
+
+    return splitPath.filter(val => val !== '');
+  }
 }
 
 export interface FsObject {
