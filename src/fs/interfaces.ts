@@ -3,14 +3,12 @@ export type Path = { absolute: boolean; dirs: string[] };
 
 export abstract class FileSystem {
   protected fs: FsDirectory;
-  private currentDirName: string;
 
   constructor() {
     this.fs = {
       name: '/',
       children: []
     };
-    this.currentDirName = '/';
   }
 
   abstract read(path: string): FileContent;
